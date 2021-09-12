@@ -53,6 +53,7 @@ function buildMetadata(sample) {
   });
 }
 
+// Bar Chart
 // 1. Create the buildCharts function.
 function buildCharts(sample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
@@ -97,5 +98,30 @@ function buildCharts(sample) {
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
+
+    // Bar and Bubble charts
+    // 1. Create the trace for the bubble chart.
+    var bubbleData = [{
+      x: otu_ids,
+      y: sample_values,
+      text: otu_labels,
+      mode: 'markers',
+      marker: {
+        size: sample_values,
+        color: otu_ids,
+        colorscale: "Earth"
+      }
+    }];
+
+    // 2. Create the layout for the bubble chart.
+    var bubbleLayout = {
+      title: "Bacteria Cultures Per Sample",
+      hovermode: "closest",
+      xaxis: {title: "OTU ID"},
+      margin: {t: 30}
+    };
+
+    // 3. Use Plotly to plot the data with the layout.
+    Plotly.newPlot("bubble", bubbleData, bubbleLayout); 
   });
 }
