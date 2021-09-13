@@ -11,18 +11,21 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
-<body>
+<body style="background-color:floralwhite;">
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Belly Button Biodiversity Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
+      <div class="col-md-12 jumbotron text-center" style="background-image: url(./static/image/Navelgazing.jpg);">
+        <h1 style="color:white">Belly Button Biodiversity Dashboard</h1>
+        <p style="color:white">Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
-        <div class="well">
+      <p class="col-md-12 lead">This dashboard is for an analysis demographically indicating for belly button biodiversity data from volunteers. Use the filter bar can look up bacterial species for each volunteer. </p>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-2">
+        <div class="well" >
           <h5>Test Subject ID No.:</h5>
           <!-- <select id="selDataset"></select> -->
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
@@ -34,16 +37,25 @@
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-xs-12 col-md-5">
         <div id="bar"></div>
+        <blockquote>
+          <p>This chart is showing the <strong>Top 10</strong> bacterial species (OTUs) for the volunteer's sample selected.</p>
+        </blockquote>
       </div>
-      <div class="col-md-5">
+      <div class="col-xs-12 col-md-5" >
         <div id="gauge"></div>
+        <blockquote>
+          <p>This chart is showing the weekly washing <strong>frequency</strong> of the volunteer's sample selected. Measure from 0-10.</p>
+        </blockquote>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div id="bubble"></div>
+        <blockquote>
+          <p>This chart is showing the <strong>sample values</strong> of all bacterial species (OTUs) on the selected volunteer sample.</p>
+        </blockquote>
       </div>
     </div>
   </div>
